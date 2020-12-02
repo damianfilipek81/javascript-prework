@@ -6,13 +6,13 @@ console.log('Wylosowana liczba to: ' + randomNumber);
 let computerMove = 'nieznany ruch';
 
 if(randomNumber == 1){
-  computerMove = 'kamień';
+    computerMove = 'kamień';
 }
 else if (randomNumber == 2){
-	computerMove = 'papier';
+    computerMove = 'papier';
 }
 else if (randomNumber == 3){
-	computerMove = 'nożyce';
+    computerMove = 'nożyce';
 }
 
 printMessage('Ruch komputera: ' + computerMove);
@@ -26,48 +26,36 @@ console.log('Gracz wpisał: ' + playerInput);
 let playerMove = 'nieznany ruch';
 
 if(playerInput == '1') {
-  playerMove = 'kamień';
+    playerMove = 'kamień';
 }
 else if (playerInput == '2') {
-	playerMove = 'papier';
+    playerMove = 'papier';
 }
 else if (playerInput == '3') {
-	playerMove = 'nożyce';
+    playerMove = 'nożyce';
 }
 
 printMessage('Mój ruch to: ' + playerMove);
 
 //win situation
 if (computerMove == 'kamień' && playerMove == 'papier') {
-	printMessage('Wygrywasz!');
+    printMessage('Wygrywasz!');
 }
 else if (computerMove == 'papier' && playerMove == 'nożyce') {
-	printMessage('Wygrywasz');
+    printMessage('Wygrywasz');
 }
 else if (computerMove == 'nożyce' && playerMove == 'kamień') {
-	printMessage('Wygrywasz');
-}
-//lose situation
-else if (computerMove == 'papier' && playerMove == 'papier') {
-	printMessage('Remis');
-}
-else if (computerMove == 'kamień' && playerMove == 'kamień') {
-	printMessage('Remis');
-}
-else if (computerMove == 'nożyce' && playerMove == 'nożyce') {
-	printMessage('Remis');
+    printMessage('Wygrywasz');
 }
 //tie situation
-else if (computerMove == 'papier' && playerMove == 'kamień') {
-	printMessage('Przegrywasz');
-}
-else if (computerMove == 'kamień' && playerMove == 'nożyce') {
-	printMessage('Przegrywasz');
-}
-else if (computerMove == 'nożyce' && playerMove == 'papier') {
-	printMessage('Przegrywasz');
+else if (computerMove == playerMove) {
+    printMessage('Remis');
 }
 //uknown situation
+else if (playerMove){
+    printMessage('Nie wykonałeś poprawnego ruchu');
+}
+//lose situation
 else {
-	printMessage('Nie wykonałeś poprawnego ruchu');
+    printMessage('Przegrywasz');
 }
