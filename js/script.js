@@ -1,3 +1,8 @@
+let computerScore = 1;
+let playerScore = 1;
+const pScore = document.getElementById('playerScore');
+const cScore = document.getElementById('computerScore');
+
 function playGame(playerInput){
     clearMessages();
     function getMoveName(argMoveId){
@@ -16,14 +21,20 @@ function playGame(playerInput){
         (argComputerMove == 'papier' && argPlayerMove == 'nożyce')||
         (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')){
             printMessage('Wygrywasz!');
+            pScore.innerHTML = playerScore;
+            playerScore++;
         }
         //tie
         else if (argComputerMove == argPlayerMove) {
             printMessage('Remis');
+            pScore.innerHTML = pScore.innerHTML;
+            cScore.innerHTML = cScore.innerHTML;
         }
         //lose
         else {
             printMessage('Przegrywasz');
+            cScore.innerHTML = computerScore;
+            computerScore++;
         }
     }
     //random, computer move
@@ -44,6 +55,7 @@ function playGame(playerInput){
 
 
     displayResult(ComputerMove, PlayerMove);
+
 }
 
 document.getElementById('play-rock').addEventListener('click', function(){
