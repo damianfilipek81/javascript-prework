@@ -2,24 +2,26 @@ let computerScore = 1;
 let playerScore = 1;
 const pScore = document.getElementById('playerScore');
 const cScore = document.getElementById('computerScore');
-
+const kamień = document.getElementById('rock');
+const papier = document.getElementById('paper');
+const nożyce = document.getElementById('scissors');
 function playGame(playerInput){
     clearMessages();
     function getMoveName(argMoveId){
         if(argMoveId == 1){
-            return 'kamień';
+            return kamień;
         } else if (argMoveId == 2) {
-            return 'papier';
+            return papier;
         } else if (argMoveId == 3) {
-            return 'nożyce';
+            return nożyce;
         }
     }
     //score
     function displayResult(argComputerMove, argPlayerMove){
         //win
-        if ((argComputerMove == 'kamień' && argPlayerMove == 'papier')||
-        (argComputerMove == 'papier' && argPlayerMove == 'nożyce')||
-        (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')){
+        if ((argComputerMove == kamień && argPlayerMove == papier)||
+        (argComputerMove == papier && argPlayerMove == nożyce)||
+        (argComputerMove == nożyce && argPlayerMove == kamień)){
             printMessage('Wygrywasz!');
             pScore.innerHTML = playerScore;
             playerScore++;

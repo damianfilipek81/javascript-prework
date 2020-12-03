@@ -14,4 +14,8 @@
 .buttons {
   text-align: center;
 }
+
+.buttons a i {
+  font-size: 100px;
+}
 /*# sourceMappingURL=style.css.map */
