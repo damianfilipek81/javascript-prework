@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="fontawesome/css/all.css">
 </head>
+
 <body>
 	<div class="container">
+		<div class="dashboard">
+			<div class="wrapper">
+				<div class="box">
+					<h2 class="player-title">RUCH GRACZA:</h2><br>
+					<i id="playerIcon" class=""></i>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="box">
+					<h2 class="computer-title">RUCH KOMPUTERA:</h2><br>
+					<i id="computerIcon" class=""></i>
+				</div>
+			</div>
+		</div>
+
 		<div id="messages" class="messages"></div>
 		<div class="result">
 			<h1>Ty: <span id="playerScore">0</span></h1>
@@ -15,13 +32,12 @@
 			<h1>Komputer: <span id="computerScore">0</span></h1>
 		</div>
 		<div id="buttons" class="buttons">
-			<a href="#"id="play-rock"><i id="rock"class="far fa-hand-rock"></i></a>
-			<a href="#"id="play-paper"><i id="paper"class="far fa-hand-paper"></i></a>
-			<a href="#"id="play-scissors"><i id="scissors"class="far fa-hand-scissors"></i></a>
+			<a href="#" id="play-rock"><i id="rock" class="far fa-hand-rock"></i></a>
+			<a href="#" id="play-paper"><i id="paper" class="far fa-hand-paper"></i></a>
+			<a href="#" id="play-scissors"><i id="scissors" class="far fa-hand-scissors"></i></a>
 		</div>
-
-	</div>
-	<script src="js/functions.js"></script>
-	<script src="js/script.js"></script>
+		<script src="js/functions.js"></script>
+		<script src="js/script.js"></script>
 </body>
+
 </html>

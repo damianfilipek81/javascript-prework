@@ -7,10 +7,43 @@
 }
 .messages {
     text-align: center;
+    font-size: 30px;
 }
 .buttons {
     text-align: center;
-    a i{
+    a i {
         font-size: 100px;
+    }
+}
+.dashboard {
+    .wrapper:first-of-type {
+        background: green;
+    }
+    .wrapper:nth-of-type(2) {
+        background: blue;
+    }
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+    h2 {
+        display: inline-block;
+    }
+}
+body {
+    margin: 0;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    i {
+        font-size: 100px;
+    }
+    .box {
+        display: inline-block;
+        text-align: center;
     }
 }

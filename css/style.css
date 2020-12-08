@@ -9,6 +9,7 @@
 
 .messages {
   text-align: center;
+  font-size: 30px;
 }
 
 .buttons {
@@ -17,5 +18,51 @@
 
 .buttons a i {
   font-size: 100px;
+}
+
+.dashboard {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 50vh;
+}
+
+.dashboard .wrapper:first-of-type {
+  background: green;
+}
+
+.dashboard .wrapper:nth-of-type(2) {
+  background: blue;
+}
+
+.dashboard h2 {
+  display: inline-block;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper i {
+  font-size: 100px;
+}
+
+.wrapper .box {
+  display: inline-block;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
