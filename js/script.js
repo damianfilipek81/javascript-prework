@@ -1,12 +1,12 @@
 
 {
-    let computerScore = 1;
-    let playerScore = 1;
-    let pScore = document.getElementById('playerScore');
-    let cScore = document.getElementById('computerScore');
-    let computerIconDisplay = document.getElementById('computerIcon');
-    let playerIconDisplay = document.getElementById('playerIcon');
-    let arr = ["far fa-hand-rock", "far fa-hand-paper", "far fa-hand-scissors"]
+    let computerScore = 0;
+    let playerScore = 0;
+    const increasePlayerScore = document.getElementById('playerScore');
+    const increaseComputerScore = document.getElementById('computerScore');
+    const computerIcon = document.getElementById('computerIcon');
+    const playerIcon = document.getElementById('playerIcon');
+    const iconsArray = ["far fa-hand-rock", "far fa-hand-paper", "far fa-hand-scissors"]
 
 
     const playGame = function (playerInput) {
@@ -22,15 +22,15 @@
         }
         //let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-        let randomComputerLoss = Math.random();
+        const randomComputerLoss = Math.floor(Math.random() * 100 + 1);
         //computer loss in 75% cases
         const computerLoss = function (playerInput) {
 
-            if ((playerInput == 1 && randomComputerLoss > 0.25) || (playerInput == 2 && randomComputerLoss < 0.25)) {
+            if ((playerInput == 1 && randomComputerLoss >= 25) || (playerInput == 2 && randomComputerLoss < 25)) {
                 return 3;
-            } else if ((playerInput == 2 && randomComputerLoss > 0.25) || (playerInput == 3 && randomComputerLoss < 0.25)) {
+            } else if ((playerInput == 2 && randomComputerLoss >= 25) || (playerInput == 3 && randomComputerLoss < 25)) {
                 return 1;
-            } else if ((playerInput == 3 && randomComputerLoss > 0.25) || (playerInput == 1 && randomComputerLoss < 0.25)) {
+            } else if ((playerInput == 3 && randomComputerLoss >= 25) || (playerInput == 1 && randomComputerLoss < 25)) {
                 return 2;
             }
         }
@@ -38,30 +38,39 @@
         console.log("Wylosowana liczba: " + randomComputerLoss);
         //score
         const displayResult = function (argComputerMove, argPlayerMove) {
-            //win
-            if ((argComputerMove == 1 && argPlayerMove == 2) ||
-                (argComputerMove == 2 && argPlayerMove == 3) ||
-                (argComputerMove == 3 && argPlayerMove == 1)) {
+            const playerWin = function () {
                 printMessage('Wygrywasz!');
                 document.getElementById('messages').style.color = "green";
-                pScore.innerHTML = playerScore;
                 playerScore++;
+                increasePlayerScore.innerHTML = playerScore;
             }
-            //tie
-            else if (argComputerMove == argPlayerMove) {
+            const playerLose = function () {
+                printMessage('Przegrywasz');
+                computerScore++;
+                increaseComputerScore.innerHTML = computerScore;
+                document.getElementById('messages').style.color = "red";
+            }
+            const tie = function () {
                 printMessage('Remis');
                 document.getElementById('messages').style.color = "black";
             }
-            //lose
-            else {
-                printMessage('Przegrywasz');
-                cScore.innerHTML = computerScore;
-                computerScore++;
-                document.getElementById('messages').style.color = "red";
+            if ((argComputerMove == 1 && argPlayerMove == 2) || //win
+                (argComputerMove == 2 && argPlayerMove == 3) ||
+                (argComputerMove == 3 && argPlayerMove == 1)) {
+                playerWin();
+            } else if (argComputerMove == argPlayerMove) { //tie
+                tie();
+            } else { //lose
+                playerLose();
             }
+
         }
-        //random, computer move
-        computerIconDisplay.className = arr[computerLoss(playerInput) - 1];
+        //computer move, show computer icon
+        const showComputerIcon = function (playerInput) {
+            computerIcon.className = iconsArray[computerLoss(playerInput) - 1];
+        }
+        showComputerIcon(playerInput);
+
         const computerMove = computerLoss(playerInput);
 
         //player input
@@ -71,17 +80,19 @@
         displayResult(computerMove, playerMove);
     }
 
-
+    const showPlayerIcon = function (playerInput) {
+        playerIcon.className = iconsArray[playerInput - 1];
+    }
     document.getElementById('play-rock').addEventListener('click', function () {
-        playerIconDisplay.className = arr[0];
+        showPlayerIcon(1);
         playGame(1);
     });
     document.getElementById('play-paper').addEventListener('click', function () {
-        playerIconDisplay.className = arr[1];
+        showPlayerIcon(2);
         playGame(2);
     });
     document.getElementById('play-scissors').addEventListener('click', function () {
-        playerIconDisplay.className = arr[2];
+        showPlayerIcon(3);
         playGame(3);
     });
 }
