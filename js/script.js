@@ -24,8 +24,9 @@
 
 
         //computer loss in 75% cases
+        const randomComputerLoss = Math.floor(Math.random() * 100 + 1);
         const computerLoss = function (playerInput) {
-            const randomComputerLoss = Math.floor(Math.random() * 100 + 1);
+
             if ((playerInput == 1 && randomComputerLoss >= 25) || (playerInput == 2 && randomComputerLoss < 25)) {
                 return 3;
             } else if ((playerInput == 2 && randomComputerLoss >= 25) || (playerInput == 3 && randomComputerLoss < 25)) {
@@ -33,10 +34,9 @@
             } else if ((playerInput == 3 && randomComputerLoss >= 25) || (playerInput == 1 && randomComputerLoss < 25)) {
                 return 2;
             }
-            console.log("Ruch komputera: " + computerLoss(playerInput));
-            console.log("Wylosowana liczba: " + randomComputerLoss);
         }
-
+        console.log(randomComputerLoss);
+        console.log("Ruch komputera: " + computerLoss(playerInput));
         //score
         const displayResult = function (argComputerMove, argPlayerMove) {
             const playerWin = function () {
@@ -67,13 +67,13 @@
 
         }
         //computer move, show computer icon
-        const showComputerIcon = function (playerInput) {
-            computerIcon.className = iconsArray[computerLoss(playerInput) - 1];
-        }
-        showComputerIcon(playerInput);
 
         const computerMove = computerLoss(playerInput);
-
+        
+        const showComputerIcon = function () {
+            computerIcon.className = iconsArray[computerMove - 1];
+        }
+        showComputerIcon();
         //player input
         const playerMove = getMoveName(playerInput);
 
