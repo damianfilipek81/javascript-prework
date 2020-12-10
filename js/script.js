@@ -22,10 +22,10 @@
         }
         //let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-        const randomComputerLoss = Math.floor(Math.random() * 100 + 1);
+
         //computer loss in 75% cases
         const computerLoss = function (playerInput) {
-
+            const randomComputerLoss = Math.floor(Math.random() * 100 + 1);
             if ((playerInput == 1 && randomComputerLoss >= 25) || (playerInput == 2 && randomComputerLoss < 25)) {
                 return 3;
             } else if ((playerInput == 2 && randomComputerLoss >= 25) || (playerInput == 3 && randomComputerLoss < 25)) {
@@ -33,9 +33,10 @@
             } else if ((playerInput == 3 && randomComputerLoss >= 25) || (playerInput == 1 && randomComputerLoss < 25)) {
                 return 2;
             }
+            console.log("Ruch komputera: " + computerLoss(playerInput));
+            console.log("Wylosowana liczba: " + randomComputerLoss);
         }
-        console.log("Ruch komputera: " + computerLoss(playerInput));
-        console.log("Wylosowana liczba: " + randomComputerLoss);
+
         //score
         const displayResult = function (argComputerMove, argPlayerMove) {
             const playerWin = function () {
